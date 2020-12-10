@@ -1,0 +1,26 @@
+<div class="countdown-timer-sec">
+    <countdown #countDown [config]="config" (event)="handleEvent($event)" class="countdown-timer"></countdown>
+</div>
+<div>
+    <mat-card>
+        <label id="radio-group-label">{{ question.questionText }}</label>
+        <mat-radio-group aria-labelledby="radio-group-label" class="radio-group" [(ngModel)]='selectedOption'>
+            <mat-radio-button class="example-radio-button" *ngFor="let option of question.options" [value]="option.optionValue" (change)="onOptionSelectionHandler($event)">
+                {{option.optionText}}
+            </mat-radio-button>
+        </mat-radio-group>
+    </mat-card>
+</div>
+<div class="modal hide fade" id="myModal">
+    <div class="modal-header">
+        <a class="close" data-dismiss="modal">×</a>
+        <h3>Modal header</h3>
+    </div>
+    <div class="modal-body">
+        <p>One fine body…</p>
+    </div>
+    <div class="modal-footer">
+        <a href="#" class="btn">Close</a>
+        <a href="#" class="btn btn-primary">Save changes</a>
+    </div>
+</div>

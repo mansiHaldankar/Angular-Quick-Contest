@@ -1,0 +1,16 @@
+<mat-toolbar color="primary">
+    <span class="header">
+    <a routerLink='/'>My Quick Contest</a>
+  </span>
+    <span class="spacer"></span>
+    <ul class="toolbar-list">
+        <li *ngIf='userId'>
+            <a class="toolbar-list-link" mat-button routerLink='/' routerLinkActive="mat-accent">
+            Signup
+          </a>
+        </li>
+        <li *ngIf='userId'>
+            <span class="toolbar-list-link" routerLinkActive="mat-accent"> Hello, {{ userId }} </span>
+        </li>
+    </ul>
+</mat-toolbar>
