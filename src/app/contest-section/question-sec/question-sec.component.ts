@@ -61,7 +61,7 @@ export class QuestionSecComponent implements OnInit {
     });
   }
 
-  handleEvent(evt) {
+  countDownEventHandler(evt) {
      if (evt.action == "done") {
        if(this.index < this.allQuestions.length){
         this.selectedOption = null;
