@@ -23,10 +23,12 @@ export class QuestionSecComponent implements OnInit {
   currentQuestionId: number;
   allQuestions: any;
   selectedOpt = {};
+  isNotify: boolean = false;
+  isAnswerAvail: any;
   @ViewChild("countDown", { static: false })
   private countdown: CountdownComponent;
   config = {
-    leftTime: 5,
+    leftTime: 15,
     format: "mm:ss",
     notify: [5]
   };
@@ -62,12 +64,23 @@ export class QuestionSecComponent implements OnInit {
   }
 
   countDownEventHandler(evt) {
-     if (evt.action == "done") {
+    if(evt.action == "notify"){
+        this.isNotify = true;
+    }
+     else if (evt.action == "done") {
        if(this.index < this.allQuestions.length){
+
+        let objKeys = Object.keys(this.selectedOpt);
+        let currentQueId = this.question.questionId;
+
+        this.isAnswerAvail = objKeys.find(function (element) {
+          return element == currentQueId;
+      });
         this.selectedOption = null;
           this.question = this.getQuestion(this.index);
 
           setTimeout(() => {
+            this.isNotify = false;
             this.countdown.restart();
           });
        }

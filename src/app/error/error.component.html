@@ -1,5 +1,5 @@
 <h2 mat-dialog-title>Hi, <span>{{data.name}}</span></h2>
 <div mat-dialog-content>
-    <p>Points earned {{data.totalPoints}}</p>
+    <p>Points earned <span class="earned-points" [ngClass]="{'lessPoints': data.totalPoints < 300}">{{data.totalPoints}}</span></p>
 </div>
 <button mat-button mat-dialog-close class="error-modal-btn">Okay</button>
